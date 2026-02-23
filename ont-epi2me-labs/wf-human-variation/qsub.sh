@@ -12,7 +12,7 @@ module load nextflow singularity
 VERSION=2.8.0
 PIPE=/g/data/if89/testdir/epi2me-labs/wf-human-variation/wf-human-variation-${VERSION}
 # Shared Singularity cache (don't change)
-export SINGULARITY_CACHEDIR=/scratch/if89/hm4078/singularity/cache
+export SINGULARITY_CACHEDIR=/g/data/if89/shpcroot/containers/ontresearch
 export SINGULARITY_TMPDIR=/scratch/$PROJECT/$(whoami)/singularity/tmp
 export NXF_SINGULARITY_CACHEDIR=${SINGULARITY_CACHEDIR}
 mkdir -p "$SINGULARITY_TMPDIR"

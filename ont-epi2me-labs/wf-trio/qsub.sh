@@ -12,7 +12,7 @@ module load nextflow singularity
 VERSION=0.9.2
 PIPE=/g/data/if89/testdir/epi2me-labs/wf-trio/wf-trio-${VERSION}
 # Shared Singularity cache (don't change)
-export SINGULARITY_CACHEDIR=/scratch/if89/hm4078/singularity/cache
+export SINGULARITY_CACHEDIR=/g/data/if89/shpcroot/containers/ontresearch
 export SINGULARITY_TMPDIR=/scratch/$PROJECT/$(whoami)/singularity/tmp
 export NXF_SINGULARITY_CACHEDIR=${SINGULARITY_CACHEDIR}
 mkdir -p "$SINGULARITY_TMPDIR"
@@ -33,8 +33,9 @@ PEDIGREE_FILE=/path/to/pedigree.ped
 FAMILY_ID="family1"
 REF=/path/to/hg38.analysisSet.fa
 TR_BED="/path/to/hg38.trf.bed"
+BED="/path/to/regions.bed"
 # Outputs (may change)
-OUTDIR=/g/data/$PROJECT/$(whoami)/ont/wf-human-variation/${SAMPLE}
+OUTDIR=/g/data/$PROJECT/$(whoami)/ont/wf-trio/${SAMPLE}
 mkdir -p "$OUTDIR"
 
 nextflow run "$PIPE" \
@@ -52,6 +53,7 @@ nextflow run "$PIPE" \
   --phased \
   --ref "$REF" \
   --snp --sv --phased --include_all_ctgs \
-	--tr_bed "$TR_BED"
+	--tr_bed "$TR_BED" \
+  --bed "$BED"
 
   echo "Workflow complete. Results in: $OUTDIR"
