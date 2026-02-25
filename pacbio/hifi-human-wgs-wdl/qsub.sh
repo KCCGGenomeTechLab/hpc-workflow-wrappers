@@ -14,7 +14,7 @@ export MINIWDL__SCHEDULER__CONTAINER_BACKEND=singularity
 export MINIWDL__SINGULARITY__EXE=singularity
 
 # Point MiniWDL to your pre-pulled image cache
-export SINGULARITY_CACHEDIR=/scratch/if89/hm4078/singularity/pacbio/cache
+export SINGULARITY_CACHEDIR="/g/data/if89/shpcroot/containers/quay.io/pacbio"
 export MINIWDL__SINGULARITY__IMAGE_CACHE="$SINGULARITY_CACHEDIR"
 
 # Allow the workflow to read files referenced by TSV maps
